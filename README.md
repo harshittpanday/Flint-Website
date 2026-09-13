@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flint Launcher website
 
-## Getting Started
+The official product website for Flint Launcher. This is a standalone website repository and is not the Flint desktop launcher source tree.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 with the App Router
+- TypeScript
+- Tailwind CSS 4
+- Framer Motion
+- Lucide icons
+- `next/font`
+
+The site is static-first, has no database, authentication, CMS, or analytics, and is ready to deploy on Vercel.
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Validation and production build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+npm start
+```
 
-## Learn More
+## Deploy to Vercel
 
-To learn more about Next.js, take a look at the following resources:
+1. Import this website repository into Vercel.
+2. Keep the detected Next.js build settings.
+3. Set `NEXT_PUBLIC_SITE_URL` to the final public origin, such as `https://flint.example`.
+4. Deploy and verify the canonical URL, sitemap, robots file, and outbound links.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Vercel also provides `VERCEL_PROJECT_PRODUCTION_URL`; the site uses that automatically when `NEXT_PUBLIC_SITE_URL` is not set. Local development falls back to `http://localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Links and release configuration
 
-## Deploy on Vercel
+GitHub, the current release, Discord, and X links are centralized in `src/lib/site.ts`. Update the release entry there when a new public Flint release is published.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Legal content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The legal pages are practical starter policies, not legal advice. Review them before a production launch and whenever hosting, analytics, launcher data handling, security guidance, or project licensing changes.
+
+At the time this site was prepared, the separate Flint launcher repository did not contain a standalone top-level `LICENSE` file. The licenses page reports that status rather than guessing a license. Update it if the project publishes an explicit license.
+
+## Project structure
+
+```text
+src/
+  app/
+    page.tsx          Homepage
+    layout.tsx        Global metadata and fonts
+    privacy/          Privacy policy
+    terms/            Terms
+    cookies/          Cookie policy
+    licenses/         License status and acknowledgements
+    disclaimer/       Project and trademark disclaimer
+    security/         Security reporting guidance
+    sitemap.ts        Search-engine sitemap
+    robots.ts         Crawler policy
+  components/         Shared navigation, footer, legal layout, and motion
+  lib/site.ts         Canonical origin and external links
+public/               Flint brand asset
+```
+
+## Brand and trademark note
+
+Flint is an independent project and is not affiliated with, endorsed by, sponsored by, or approved by Mojang Studios or Microsoft. Minecraft and related marks belong to their respective owners.
