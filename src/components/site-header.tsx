@@ -37,7 +37,7 @@ export function SiteHeader() {
           <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{label}</a>
         ))}
       </nav>
-      <a className="button button-small header-download" href={siteLinks.release} target="_blank" rel="noreferrer">
+      <a className="button button-small header-download" href={siteLinks.installer} download="Flint_0.3.0_x64-setup.exe">
         <Download aria-hidden="true" /> Download for Windows
       </a>
       <button className="menu-button" type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen((value) => !value)}>
@@ -48,7 +48,7 @@ export function SiteHeader() {
           {links.map(([label, href]) => (
             <a key={label} href={href} onClick={() => setOpen(false)} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{label}</a>
           ))}
-          <a className="button" href={siteLinks.release} target="_blank" rel="noreferrer"><Download aria-hidden="true" /> Download v0.3 Beta</a>
+          <a className="button" href={siteLinks.installer} download="Flint_0.3.0_x64-setup.exe"><Download aria-hidden="true" /> Download for Windows</a>
         </nav>
       )}
     </header>

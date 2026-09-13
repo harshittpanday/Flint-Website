@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { siteOrigin } from "@/lib/site";
+import { siteLinks, siteOrigin } from "@/lib/site";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -15,7 +15,7 @@ const structuredData = {
   softwareVersion: "0.3 Beta",
   description: "A focused Minecraft launcher for managing versions, isolated profiles, Java runtimes, Fabric, and compatible mods.",
   url: siteOrigin,
-  downloadUrl: "https://github.com/harshittpanday/Flint/releases/tag/v0.3-Beta",
+  downloadUrl: siteLinks.installer,
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   sameAs: ["https://github.com/harshittpanday/Flint", "https://x.com/harshittpanday"],
 };

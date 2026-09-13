@@ -39,7 +39,7 @@ const features = [
 ];
 
 const faqs = [
-  ["Is Flint free?", "Yes. Flint v0.3 Beta is available at no charge from the project’s GitHub release page."],
+  ["Is Flint free?", "Yes. Flint v0.3 Beta is available at no charge through the project’s official GitHub download."],
   ["Which systems are supported?", "The current public release is for Windows x64. This site does not claim macOS or Linux support."],
   ["Do I need to install Java myself?", "Flint can manage the required Java runtime automatically for supported versions."],
   ["Does Flint improve FPS?", "The launcher can help you create performance-oriented Fabric profiles and install compatible optimization mods such as Sodium. Flint does not publish unverified FPS claims."],
@@ -58,8 +58,8 @@ export default function Home() {
           <h1>Minecraft without the <em>launcher headache.</em></h1>
           <p className="hero-lede">Flint keeps versions, profiles, Java runtimes, Fabric, and mods in one focused launcher—so getting into the game takes fewer detours.</p>
           <div className="hero-actions">
-            <a className="button" href={links.release} target="_blank" rel="noreferrer"><Download aria-hidden="true" /> Download Flint v0.3 Beta</a>
-            <a className="button button-ghost" href={links.github} target="_blank" rel="noreferrer">View on GitHub <ArrowUpRight aria-hidden="true" /></a>
+            <a className="button" href={links.installer} download="Flint_0.3.0_x64-setup.exe"><Download aria-hidden="true" /> Download for Windows</a>
+            <a className="button button-ghost" href={links.release} target="_blank" rel="noreferrer">View Release Notes <ArrowUpRight aria-hidden="true" /></a>
           </div>
           <p className="supporting-line">Free · Source available · Windows · Beta</p>
         </div>
@@ -188,10 +188,10 @@ export default function Home() {
           <div>
             <p className="kicker">06 / Current release</p>
             <h2>Strike once.<br /><span>Start clean.</span></h2>
-            <p>Flint v0.3 Beta is available for Windows x64. Download it from the official GitHub release page.</p>
+            <p>Flint v0.3 Beta is available for Windows x64. Download the NSIS installer directly from the official GitHub release asset.</p>
             <div className="hero-actions">
-              <a className="button" href={links.release} target="_blank" rel="noreferrer"><Download aria-hidden="true" /> Download Flint v0.3 Beta</a>
-              <a className="button button-ghost" href={links.release} target="_blank" rel="noreferrer">View GitHub release <ExternalLink aria-hidden="true" /></a>
+              <a className="button" href={links.installer} download="Flint_0.3.0_x64-setup.exe"><Download aria-hidden="true" /> Download for Windows</a>
+              <a className="button button-ghost" href={links.release} target="_blank" rel="noreferrer">View Release Notes <ExternalLink aria-hidden="true" /></a>
             </div>
           </div>
           <div className="download-spec"><span>PLATFORM</span><strong>Windows x64</strong><span>CHANNEL</span><strong>Beta</strong><span>VERSION</span><strong>0.3</strong></div>

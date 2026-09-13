@@ -1,5 +1,6 @@
 export const siteLinks = {
   github: "https://github.com/harshittpanday/Flint",
+  installer: "https://github.com/harshittpanday/Flint/releases/download/v0.3-Beta/Flint_0.3.0_x64-setup.exe",
   release: "https://github.com/harshittpanday/Flint/releases/tag/v0.3-Beta",
   discord: "https://discord.gg/atWfHfwjYy",
   x: "https://x.com/harshittpanday",
