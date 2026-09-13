@@ -37,7 +37,7 @@ npm start
 3. Set `NEXT_PUBLIC_SITE_URL` to the final public origin, such as `https://flint.example`.
 4. Deploy and verify the canonical URL, sitemap, robots file, and outbound links.
 
-Vercel also provides `VERCEL_PROJECT_PRODUCTION_URL`; the site uses that automatically when `NEXT_PUBLIC_SITE_URL` is not set. Local development falls back to `http://localhost:3000`.
+Vercel also provides `VERCEL_PROJECT_PRODUCTION_URL`; the site uses that automatically when `NEXT_PUBLIC_SITE_URL` is missing or empty. Production builds ultimately fall back to `https://flint-website.vercel.app`, while local development falls back to `http://localhost:3000`.
 
 ## Links and release configuration
 
