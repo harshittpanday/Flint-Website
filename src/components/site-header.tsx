@@ -1,0 +1,46 @@
+"use client";
+
+import { Download, Menu, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { siteLinks } from "@/lib/site";
+
+const links = [
+  ["Features", "/#features"],
+  ["Mods", "/#mods"],
+  ["Performance", "/#performance"],
+  ["FAQ", "/#faq"],
+  ["GitHub", siteLinks.github],
+  ["Discord", siteLinks.discord],
+];
+
+export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <header className="site-header">
+      <Link className="brand" href="/" aria-label="Flint home" onClick={() => setOpen(false)}>
+        <Image src="/flint-logo.png" width={44} height={44} alt="" priority />
+        <span>FLINT</span>
+      </Link>
+      <nav className="desktop-nav" aria-label="Main navigation">
+        {links.map(([label, href]) => (
+          <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{label}</a>
+        ))}
+      </nav>
+      <a className="button button-small header-download" href={siteLinks.release} target="_blank" rel="noreferrer">
+        <Download aria-hidden="true" /> Download for Windows
+      </a>
+      <button className="menu-button" type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen((value) => !value)}>
+        {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+      </button>
+      <nav id="mobile-menu" className={`mobile-nav ${open ? "is-open" : ""}`} aria-label="Mobile navigation">
+        {links.map(([label, href]) => (
+          <a key={label} href={href} onClick={() => setOpen(false)} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{label}</a>
+        ))}
+        <a className="button" href={siteLinks.release} target="_blank" rel="noreferrer"><Download aria-hidden="true" /> Download v0.3 Beta</a>
+      </nav>
+    </header>
+  );
+}
