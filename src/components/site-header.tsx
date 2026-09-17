@@ -4,7 +4,7 @@ import { Download, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { siteLinks } from "@/lib/site";
+import { currentRelease, siteLinks } from "@/lib/site";
 
 const links = [
   ["Features", "/#features"],
@@ -37,7 +37,7 @@ export function SiteHeader() {
           <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{label}</a>
         ))}
       </nav>
-      <a className="button button-small header-download" href={siteLinks.installer} download="Flint_0.3.0_x64-setup.exe">
+      <a className="button button-small header-download" href={siteLinks.installer} download={currentRelease.installerFileName}>
         <Download aria-hidden="true" /> Download for Windows
       </a>
       <button className="menu-button" type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen((value) => !value)}>
@@ -48,7 +48,7 @@ export function SiteHeader() {
           {links.map(([label, href]) => (
             <a key={label} href={href} onClick={() => setOpen(false)} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{label}</a>
           ))}
-          <a className="button" href={siteLinks.installer} download="Flint_0.3.0_x64-setup.exe"><Download aria-hidden="true" /> Download for Windows</a>
+          <a className="button" href={siteLinks.installer} download={currentRelease.installerFileName}><Download aria-hidden="true" /> Download for Windows</a>
         </nav>
       )}
     </header>

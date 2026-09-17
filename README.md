@@ -41,7 +41,7 @@ Vercel also provides `VERCEL_PROJECT_PRODUCTION_URL`; the site uses that automat
 
 ## Links and release configuration
 
-GitHub, the current NSIS installer, release notes, Discord, and X links are centralized in `src/lib/site.ts`. Update both release entries there when a new public Flint release is published.
+GitHub, the current NSIS installer, release notes, previous release, Discord, and X links are centralized in `src/lib/site.ts` alongside the current release name, version, and published installer filename. Update these entries together when a new public Flint release is published. The v0.4 release asset is published as `Flint_0.3.0_x64-setup.exe`; the filename and embedded product version remain 0.3.0 despite the v0.4 release tag.
 
 ## Legal content
 

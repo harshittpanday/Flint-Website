@@ -206,6 +206,10 @@ h1 em { display:block; color:var(--orange); font-style:normal; }
 
 /* Download */
 .download-section { background: #0c0c0b; }.download-card { display:grid; grid-template-columns:1fr auto; align-items:end; gap:50px; padding:clamp(38px,6vw,82px); border:1px solid #5a301b; background:linear-gradient(110deg,rgba(255,104,31,.12),transparent 45%),#11100e; }.download-card > div > p { margin: 25px 0 30px; }.download-spec { min-width:260px; display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid #3a362f; }.download-spec span,.download-spec strong { padding:14px 0; border-bottom:1px solid #3a362f; }.download-spec span { color:#6f6b64; font:600 .64rem var(--font-geist-mono); }.download-spec strong { text-align:right; font-size:.9rem; }
+.download-card > div > .release-asset-note,.download-card > div > .release-history { margin: 0 0 22px; font-size: .88rem; }
+.download-card > div > .release-history { margin: 22px 0 0; }
+.release-history a { display: inline-flex; align-items: center; gap: 4px; color: #ff9b5e; text-decoration: underline; text-underline-offset: 3px; }
+.release-history svg { width: 14px; height: 14px; }
 
 /* FAQ */
 .faq-section { display:grid; grid-template-columns:.8fr 1.2fr; align-items:start; gap:8vw; }.faq-list { border-top:1px solid var(--line); }.faq-list details { border-bottom:1px solid var(--line); }.faq-list summary { min-height:82px; display:grid; grid-template-columns:44px 1fr auto; align-items:center; gap:15px; cursor:pointer; list-style:none; font-weight:650; }.faq-list summary::-webkit-details-marker{display:none}.faq-list summary span{color:#65615b;font:600 .67rem var(--font-geist-mono)}.faq-list summary b{color:var(--orange);font-size:1.4rem;font-weight:400;transition:transform .2s}.faq-list details[open] summary b{transform:rotate(45deg)}.faq-list details p{margin:-4px 45px 28px 59px;color:#969189;line-height:1.7}

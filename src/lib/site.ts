@@ -1,9 +1,16 @@
 export const siteLinks = {
   github: "https://github.com/harshittpanday/Flint",
-  installer: "https://github.com/harshittpanday/Flint/releases/download/v0.3-Beta/Flint_0.3.0_x64-setup.exe",
-  release: "https://github.com/harshittpanday/Flint/releases/tag/v0.3-Beta",
+  installer: "https://github.com/harshittpanday/Flint/releases/download/v0.4/Flint_0.3.0_x64-setup.exe",
+  release: "https://github.com/harshittpanday/Flint/releases/tag/v0.4",
+  previousRelease: "https://github.com/harshittpanday/Flint/releases/tag/v0.3-Beta",
   discord: "https://discord.gg/atWfHfwjYy",
   x: "https://x.com/harshittpanday",
+} as const;
+
+export const currentRelease = {
+  name: "Flint v0.4 Beta",
+  version: "0.4",
+  installerFileName: "Flint_0.3.0_x64-setup.exe",
 } as const;
 
 const productionSiteOrigin = "https://flint-website.vercel.app";

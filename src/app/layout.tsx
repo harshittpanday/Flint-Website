@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { siteLinks, siteOrigin } from "@/lib/site";
+import { currentRelease, siteLinks, siteOrigin } from "@/lib/site";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -12,7 +12,7 @@ const structuredData = {
   name: "Flint Launcher",
   applicationCategory: "GameApplication",
   operatingSystem: "Windows 64-bit",
-  softwareVersion: "0.3 Beta",
+  softwareVersion: `${currentRelease.version} Beta`,
   description: "A focused Minecraft launcher for managing versions, isolated profiles, Java runtimes, Fabric, and compatible mods.",
   url: siteOrigin,
   downloadUrl: siteLinks.installer,
