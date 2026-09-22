@@ -35,7 +35,7 @@ const features = [
   { icon: Blocks, label: "Vanilla + Fabric", text: "Create a clean Vanilla profile or choose Fabric when your setup needs mods." },
   { icon: Radio, label: "Discord Rich Presence", text: "Optionally share basic launcher or game activity. Profile names and server addresses stay out." },
   { icon: Code2, label: "Public source", text: "Inspect the code and follow development on GitHub. Check the repository for current reuse terms." },
-  { icon: Gamepad2, label: "Flint Client", text: "An optional, experimental in-game layer. Local skins can now appear in your game, though cosmetics remain in beta." },
+  { icon: Gamepad2, label: "Flint Client", text: "An optional in-game client with a Right Shift menu and customizable HUD, including FPS and Coordinates controls." },
 ];
 
 const faqs = [
@@ -43,7 +43,7 @@ const faqs = [
   ["Which systems are supported?", "The current public release is for Windows x64. This site does not claim macOS or Linux support."],
   ["Do I need to install Java myself?", "Flint can manage the required Java runtime automatically for supported versions."],
   ["Does Flint improve FPS?", "The launcher can help you create performance-oriented Fabric profiles and install compatible optimization mods such as Sodium. Flint does not publish unverified FPS claims."],
-  ["Is Flint Client required?", "No. The launcher works without Flint Client. The client integration is optional and experimental."],
+  ["Is Flint Client required?", "No. The launcher works without Flint Client. The in-game client is optional and remains in beta."],
   ["Are AutoAuth, skins, and capes fully stable?", "No. AutoAuth remains experimental. Local skins can render in-game with Flint Client, but cosmetics and capes may still have bugs in this beta."],
 ];
 
@@ -56,7 +56,7 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow"><span /> {currentRelease.name} · Windows x64</p>
           <h1>Minecraft without the <em>launcher headache.</em></h1>
-          <p className="hero-lede">The redesigned Home brings your profile, Minecraft version, loader, and Play control together, with recent profiles and setup details close by.</p>
+          <p className="hero-lede">Flint v0.5 adds an in-game Flint Client menu and customizable HUD while keeping profiles, versions, Java, Fabric, and mods in one focused launcher.</p>
           <div className="hero-actions">
             <a className="button" href={links.installer} download={currentRelease.installerFileName}><Download aria-hidden="true" /> Download for Windows</a>
             <a className="button button-ghost" href={links.release} target="_blank" rel="noreferrer">View Release Notes <ArrowUpRight aria-hidden="true" /></a>
@@ -176,8 +176,8 @@ export default function Home() {
             <p className="kicker">05 / Optional integration</p>
             <h2>Flint Client</h2>
             <span className="experimental-label"><Sparkles aria-hidden="true" /> Experimental</span>
-            <p>An optional in-game integration layer. Local skins can now appear in-game on your own setup; the launcher also works without Flint Client.</p>
-            <p className="known-issue"><strong>Current {currentRelease.name} note:</strong> AutoAuth remains experimental, and Flint Client cosmetics and capes may still have bugs.</p>
+            <p>Press Right Shift in-game to open the Flint Client menu. Explore HUD, Render, Player, Flint, and Settings sections; customize the HUD and control FPS and Coordinates displays.</p>
+            <p className="known-issue"><strong>Current {currentRelease.name} note:</strong> Minecraft 1.21.11, Flint Client loading, and the Right Shift menu were manually verified. This is still beta software; AutoAuth remains experimental and cosmetics may still have bugs.</p>
           </div>
           <div className="client-orbit" aria-hidden="true"><div className="orbit-core"><Image src="/flint-logo.png" width={92} height={92} alt="" /></div><span className="orbit-one" /><span className="orbit-two" /><span className="orbit-three" /></div>
         </Reveal>
@@ -188,13 +188,13 @@ export default function Home() {
           <div>
             <p className="kicker">06 / Current release</p>
             <h2>Strike once.<br /><span>Start clean.</span></h2>
-            <p>{currentRelease.name} is available for Windows x64. The release brings a horizontal launcher navbar, a scenery-led Home with profile switching, recent profiles, and current setup details, plus safer cross-version imports and local skin rendering through Flint Client.</p>
-            <p className="release-asset-note">The published v0.4 installer is currently named {currentRelease.installerFileName} by the project.</p>
+            <p>{currentRelease.name} is available for Windows x64. It introduces the in-game Flint Client menu and HUD customization, improves crash diagnostics, and fixes Flint Client stability and delivery issues.</p>
+            <p className="release-asset-note">The published v0.5 installer is currently named {currentRelease.installerFileName} by the project.</p>
             <div className="hero-actions">
               <a className="button" href={links.installer} download={currentRelease.installerFileName}><Download aria-hidden="true" /> Download for Windows</a>
               <a className="button button-ghost" href={links.release} target="_blank" rel="noreferrer">View Release Notes <ExternalLink aria-hidden="true" /></a>
             </div>
-            <p className="release-history">Previous release: <a href={links.previousRelease} target="_blank" rel="noreferrer">Flint v0.3 Beta <ExternalLink aria-hidden="true" /></a></p>
+            <p className="release-history">Previous releases: <a href={links.previousRelease} target="_blank" rel="noreferrer">v0.4 Beta <ExternalLink aria-hidden="true" /></a> · <a href={links.olderRelease} target="_blank" rel="noreferrer">v0.3 Beta <ExternalLink aria-hidden="true" /></a></p>
           </div>
           <div className="download-spec"><span>PLATFORM</span><strong>Windows x64</strong><span>CHANNEL</span><strong>Beta</strong><span>VERSION</span><strong>{currentRelease.version}</strong></div>
         </Reveal>
