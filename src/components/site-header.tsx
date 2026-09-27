@@ -19,6 +19,7 @@ const links = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const { downloadUrl, fileName, buttonText } = useDownload();
+  const isInternal = downloadUrl.startsWith("/");
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -39,9 +40,15 @@ export function SiteHeader() {
           <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{label}</a>
         ))}
       </nav>
-      <a className="button button-small header-download" href={downloadUrl} download={fileName}>
-        <Download aria-hidden="true" /> {buttonText}
-      </a>
+      {isInternal ? (
+        <Link className="button button-small header-download" href={downloadUrl}>
+          <Download aria-hidden="true" /> {buttonText}
+        </Link>
+      ) : (
+        <a className="button button-small header-download" href={downloadUrl} download={fileName}>
+          <Download aria-hidden="true" /> {buttonText}
+        </a>
+      )}
       <button className="menu-button" type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen((value) => !value)}>
         {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
       </button>
@@ -50,7 +57,15 @@ export function SiteHeader() {
           {links.map(([label, href]) => (
             <a key={label} href={href} onClick={() => setOpen(false)} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{label}</a>
           ))}
-          <a className="button" href={downloadUrl} download={fileName}><Download aria-hidden="true" /> {buttonText}</a>
+          {isInternal ? (
+            <Link className="button" href={downloadUrl} onClick={() => setOpen(false)}>
+              <Download aria-hidden="true" /> {buttonText}
+            </Link>
+          ) : (
+            <a className="button" href={downloadUrl} download={fileName}>
+              <Download aria-hidden="true" /> {buttonText}
+            </a>
+          )}
         </nav>
       )}
     </header>

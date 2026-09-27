@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight, Download, ExternalLink } from "lucide-react";
+import Link from "next/link";
 import { useDownload } from "./download-context";
 import { PlatformSelector } from "./platform-selector";
 
@@ -15,13 +16,20 @@ export function HeroEyebrow() {
 
 export function HeroDownloadActions() {
   const { downloadUrl, releaseUrl, buttonText, fileName } = useDownload();
+  const isInternal = downloadUrl.startsWith("/");
 
   return (
     <div className="hero-actions">
       <div className="download-cta-group">
-        <a className="button" href={downloadUrl} download={fileName}>
-          <Download aria-hidden="true" /> {buttonText}
-        </a>
+        {isInternal ? (
+          <Link className="button" href={downloadUrl}>
+            <Download aria-hidden="true" /> {buttonText}
+          </Link>
+        ) : (
+          <a className="button" href={downloadUrl} download={fileName}>
+            <Download aria-hidden="true" /> {buttonText}
+          </a>
+        )}
         <PlatformSelector />
       </div>
       <a className="button button-ghost" href={releaseUrl} target="_blank" rel="noreferrer">
@@ -39,15 +47,22 @@ export function DownloadCardActions() {
     fileName,
     releaseAssetNote,
   } = useDownload();
+  const isInternal = downloadUrl.startsWith("/");
 
   return (
     <>
       <p className="release-asset-note">{releaseAssetNote}</p>
       <div className="hero-actions">
         <div className="download-cta-group">
-          <a className="button" href={downloadUrl} download={fileName}>
-            <Download aria-hidden="true" /> {buttonText}
-          </a>
+          {isInternal ? (
+            <Link className="button" href={downloadUrl}>
+              <Download aria-hidden="true" /> {buttonText}
+            </Link>
+          ) : (
+            <a className="button" href={downloadUrl} download={fileName}>
+              <Download aria-hidden="true" /> {buttonText}
+            </a>
+          )}
           <PlatformSelector />
         </div>
         <a className="button button-ghost" href={releaseUrl} target="_blank" rel="noreferrer">
