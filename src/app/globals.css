@@ -187,7 +187,7 @@ h1 em { display:block; color:var(--orange); font-style:normal; }
 /* Import */
 .import-section { overflow: hidden; background: #0b0b0a; }
 .check-list { display: grid; gap: 14px; margin: 32px 0 0; padding: 0; list-style: none; }
-.check-list li { display: flex; align-items: center; gap: 11px; color: #bab5ad; }.check-list svg { width: 17px; color: var(--orange); }
+.check-list li { display: flex; align-items: center; gap: 11px; color: #bab5ad; }.check-list svg { width: 17px; color: var(--orange); flex-shrink: 0; }
 .import-map { position: relative; min-height: 470px; display: grid; grid-template-columns: 1fr 100px 1fr; align-items: center; }
 .source-node,.profile-node { min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; border: 1px solid var(--line); background: #10100e; text-align: center; }
 .source-node > svg { width: 50px; height: 50px; color: #76716a; stroke-width: 1.2; }.profile-node img { border-radius: 12px; }
@@ -379,3 +379,325 @@ h1 em { display:block; color:var(--orange); font-style:normal; }
   }
 }
 
+/* Command Block & Terminal Component */
+.command-block-container {
+  margin: 1.25rem 0;
+  border: 1px solid #36332d;
+  border-radius: 12px;
+  background: #0d0d0b;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.command-block-header {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  background: #141310;
+  border-bottom: 1px solid #282622;
+}
+
+.command-block-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.command-block-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.command-block-dots .dot-red { background: #ff5f56; }
+.command-block-dots .dot-amber { background: #ffbd2e; }
+.command-block-dots .dot-green { background: #27c93f; }
+
+.command-block-label {
+  color: #77726a;
+  font: 600 0.72rem var(--font-geist-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.command-copy-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: #1e1c18;
+  border: 1px solid #38352f;
+  border-radius: 6px;
+  color: #d6d1c8;
+  font: 600 0.75rem var(--font-geist-mono);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.command-copy-button:hover {
+  background: #282520;
+  border-color: #555047;
+  color: #fff;
+}
+
+.command-copy-button.copied {
+  background: rgba(255, 104, 31, 0.15);
+  border-color: var(--orange);
+  color: #ff9a61;
+}
+
+.command-copy-button .copy-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.command-block-code {
+  padding: 16px 18px;
+  overflow-x: auto;
+  background: #090908;
+}
+
+.command-block-code pre {
+  margin: 0;
+  font-family: var(--font-geist-mono);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+.command-block-code code {
+  font-family: inherit;
+}
+
+.command-block-code .shell-prompt {
+  color: var(--orange);
+  font-weight: 700;
+  user-select: none;
+}
+
+.command-block-code .command-text {
+  color: #f5f2eb;
+}
+
+/* Linux Download Page */
+.linux-hero {
+  min-height: calc(85vh - 76px);
+}
+
+.linux-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+
+.linux-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #141310;
+  border: 1px solid #322f29;
+  border-radius: 6px;
+  color: #bab5ad;
+  font: 600 0.74rem var(--font-geist-mono);
+}
+
+.linux-badge-item svg {
+  width: 14px;
+  height: 14px;
+  color: var(--orange);
+}
+
+.linux-terminal-preview {
+  background: #0a0a09;
+}
+
+.linux-preview-body {
+  padding: 24px 20px;
+  font-family: var(--font-geist-mono);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: #a8a39a;
+}
+
+.terminal-lines p {
+  margin: 0 0 10px;
+}
+
+.terminal-lines p:last-child {
+  margin-bottom: 0;
+}
+
+.terminal-lines .t-green {
+  color: #4ade80;
+  font-weight: bold;
+}
+
+.terminal-lines .t-orange {
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.terminal-lines strong {
+  color: #fff;
+}
+
+.download-methods-section {
+  background: #090908;
+}
+
+.linux-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.linux-option-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(28px, 4vw, 42px);
+  background: #11100e;
+  border: 1px solid #322f29;
+  border-radius: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.linux-option-card.option-primary {
+  border-color: #5a301b;
+  background: linear-gradient(135deg, rgba(255, 104, 31, 0.08), transparent 60%), #11100e;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 104, 31, 0.06);
+}
+
+.option-header {
+  margin-bottom: 1.25rem;
+}
+
+.option-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  margin-bottom: 12px;
+  background: #1a1815;
+  border: 1px solid #38342d;
+  border-radius: 6px;
+  color: #a39e94;
+  font: 600 0.68rem var(--font-geist-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.option-tag.tag-primary {
+  background: rgba(255, 104, 31, 0.15);
+  border-color: #724025;
+  color: #ff9a61;
+}
+
+.option-header h3 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.option-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.option-explanation {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #24221d;
+}
+
+.option-explanation h4 {
+  margin: 0 0 12px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ded9d0;
+}
+
+.option-explanation .subtext {
+  margin: 0 0 8px;
+  color: #918c84;
+  font-size: 0.86rem;
+}
+
+.direct-download-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 1.25rem 0;
+  padding: 20px;
+  background: #090807;
+  border: 1px solid #2e2b25;
+  border-radius: 12px;
+}
+
+.file-info-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.file-info-badge .file-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.file-info-badge div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.file-info-badge strong {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.file-info-badge small {
+  color: var(--muted);
+  font: 500 0.75rem var(--font-geist-mono);
+}
+
+.fuse-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 1.5rem;
+  padding: 14px 16px;
+  background: rgba(255, 104, 31, 0.05);
+  border: 1px solid #4a2d1d;
+  border-radius: 9px;
+  font-size: 0.85rem;
+  color: #bab5ad;
+}
+
+.fuse-note svg {
+  width: 18px;
+  height: 18px;
+  color: var(--orange);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fuse-note code {
+  color: var(--orange);
+  font-family: var(--font-geist-mono);
+  background: rgba(255, 104, 31, 0.1);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+@media (max-width: 950px) {
+  .linux-options-grid {
+    grid-template-columns: 1fr;
+  }
+}

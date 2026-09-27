@@ -4,7 +4,6 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import {
   currentRelease,
   detectOS,
-  LINUX_DOWNLOAD_URL,
   LINUX_RELEASE_URL,
   Platform,
   WINDOWS_DOWNLOAD_URL,
@@ -47,14 +46,14 @@ export function DownloadProvider({ children }: { children: React.ReactNode }) {
     switch (platform) {
       case "linux":
         return {
-          downloadUrl: LINUX_DOWNLOAD_URL,
+          downloadUrl: "/download/linux",
           releaseUrl: LINUX_RELEASE_URL,
           buttonText: "Download for Linux",
           fileName: currentRelease.linuxInstallerFileName,
-          specPlatform: "Linux x86_64 (AppImage)",
+          specPlatform: "Linux x86_64",
           specVersion: `v${currentRelease.linuxVersion}`,
-          eyebrowText: `Flint v${currentRelease.linuxVersion} · Linux x86_64`,
-          releaseAssetNote: `The published Linux release asset is named ${currentRelease.linuxInstallerFileName}.`,
+          eyebrowText: `Flint v${currentRelease.linuxVersion} \u00b7 Linux x86_64`,
+          releaseAssetNote: `Flint for Linux is available via installer script or direct ${currentRelease.linuxInstallerFileName} download.`,
         };
       case "windows":
         return {
@@ -64,7 +63,7 @@ export function DownloadProvider({ children }: { children: React.ReactNode }) {
           fileName: currentRelease.installerFileName,
           specPlatform: "Windows x64",
           specVersion: `v${currentRelease.version}`,
-          eyebrowText: `${currentRelease.name} · Windows x64`,
+          eyebrowText: `${currentRelease.name} \u00b7 Windows x64`,
           releaseAssetNote: `The published v0.5 installer is currently named ${currentRelease.installerFileName} by the project.`,
         };
       case "unknown":
@@ -76,7 +75,7 @@ export function DownloadProvider({ children }: { children: React.ReactNode }) {
           fileName: currentRelease.installerFileName,
           specPlatform: "Windows / Linux",
           specVersion: `v${currentRelease.version} / v${currentRelease.linuxVersion}`,
-          eyebrowText: `${currentRelease.name} · Windows & Linux`,
+          eyebrowText: `${currentRelease.name} \u00b7 Windows & Linux`,
           releaseAssetNote: `Published releases are available for Windows (${currentRelease.installerFileName}) and Linux (${currentRelease.linuxInstallerFileName}).`,
         };
     }
@@ -108,7 +107,7 @@ const defaultDownloadDetails: DownloadContextType = {
   fileName: currentRelease.installerFileName,
   specPlatform: "Windows / Linux",
   specVersion: `v${currentRelease.version} / v${currentRelease.linuxVersion}`,
-  eyebrowText: `${currentRelease.name} · Windows & Linux`,
+  eyebrowText: `${currentRelease.name} \u00b7 Windows & Linux`,
   releaseAssetNote: `Published releases are available for Windows (${currentRelease.installerFileName}) and Linux (${currentRelease.linuxInstallerFileName}).`,
 };
 

@@ -4,9 +4,11 @@ export const WINDOWS_RELEASE_URL =
   "https://github.com/harshittpanday/Flint/releases/tag/v0.5";
 
 export const LINUX_DOWNLOAD_URL =
-  " https://raw.githubusercontent.com/lazzy-amrit/Flint-linux/main/installer.sh";
+  "https://raw.githubusercontent.com/lazzy-amrit/Flint-linux/main/installer.sh";
 export const LINUX_RELEASE_URL =
   "https://github.com/lazzy-amrit/Flint-linux/releases/tag/v0.3.0";
+export const LINUX_APPIMAGE_URL =
+  "https://github.com/lazzy-amrit/Flint-linux/releases/download/v0.3.0/Flint-0.3.0-x86_64.AppImage";
 
 export const siteLinks = {
   github: "https://github.com/harshittpanday/Flint",
@@ -14,6 +16,8 @@ export const siteLinks = {
   release: WINDOWS_RELEASE_URL,
   linuxInstaller: LINUX_DOWNLOAD_URL,
   linuxRelease: LINUX_RELEASE_URL,
+  linuxAppImage: LINUX_APPIMAGE_URL,
+  linuxDownloadPage: "/download/linux",
   previousRelease: "https://github.com/harshittpanday/Flint/releases/tag/v0.4",
   olderRelease: "https://github.com/harshittpanday/Flint/releases/tag/v0.3-Beta",
   discord: "https://discord.gg/atWfHfwjYy",
