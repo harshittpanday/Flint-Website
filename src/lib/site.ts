@@ -4,7 +4,7 @@ export const WINDOWS_RELEASE_URL =
   "https://github.com/harshittpanday/Flint/releases/tag/v0.5";
 
 export const LINUX_DOWNLOAD_URL =
-  "https://github.com/lazzy-amrit/Flint-linux/releases/download/v0.3.0/Flint-0.3.0-x86_64.AppImage";
+  " https://raw.githubusercontent.com/lazzy-amrit/Flint-linux/main/installer.sh";
 export const LINUX_RELEASE_URL =
   "https://github.com/lazzy-amrit/Flint-linux/releases/tag/v0.3.0";
 
