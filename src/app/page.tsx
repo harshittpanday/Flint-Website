@@ -6,7 +6,6 @@ import {
   Check,
   CircleGauge,
   Code2,
-  Download,
   ExternalLink,
   FolderInput,
   Gamepad2,
@@ -22,6 +21,7 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
+import { DownloadCardActions, DownloadCardSpec, HeroDownloadActions, HeroEyebrow } from "@/components/download-actions";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -40,7 +40,7 @@ const features = [
 
 const faqs = [
   ["Is Flint free?", `Yes. ${currentRelease.name} is available at no charge through the project’s official GitHub download.`],
-  ["Which systems are supported?", "The current public release is for Windows x64. This site does not claim macOS or Linux support."],
+  ["Which systems are supported?", "Flint is available for Windows (x64) and Linux (AppImage). This site does not claim macOS support."],
   ["Do I need to install Java myself?", "Flint can manage the required Java runtime automatically for supported versions."],
   ["Does Flint improve FPS?", "The launcher can help you create performance-oriented Fabric profiles and install compatible optimization mods such as Sodium. Flint does not publish unverified FPS claims."],
   ["Is Flint Client required?", "No. The launcher works without Flint Client. The in-game client is optional and remains in beta."],
@@ -54,14 +54,11 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow"><span /> {currentRelease.name} · Windows x64</p>
+          <HeroEyebrow />
           <h1>Minecraft without the <em>launcher headache.</em></h1>
           <p className="hero-lede">Flint v0.5 adds an in-game Flint Client menu and customizable HUD while keeping profiles, versions, Java, Fabric, and mods in one focused launcher.</p>
-          <div className="hero-actions">
-            <a className="button" href={links.installer} download={currentRelease.installerFileName}><Download aria-hidden="true" /> Download for Windows</a>
-            <a className="button button-ghost" href={links.release} target="_blank" rel="noreferrer">View Release Notes <ArrowUpRight aria-hidden="true" /></a>
-          </div>
-          <p className="supporting-line">Free · Source available · Windows · Beta</p>
+          <HeroDownloadActions />
+          <p className="supporting-line">Free · Source available · Windows & Linux · Beta</p>
         </div>
 
         <div className="hero-visual" aria-label="Abstract Flint profile manager preview">
@@ -188,15 +185,11 @@ export default function Home() {
           <div>
             <p className="kicker">06 / Current release</p>
             <h2>Strike once.<br /><span>Start clean.</span></h2>
-            <p>{currentRelease.name} is available for Windows x64. It introduces the in-game Flint Client menu and HUD customization, improves crash diagnostics, and fixes Flint Client stability and delivery issues.</p>
-            <p className="release-asset-note">The published v0.5 installer is currently named {currentRelease.installerFileName} by the project.</p>
-            <div className="hero-actions">
-              <a className="button" href={links.installer} download={currentRelease.installerFileName}><Download aria-hidden="true" /> Download for Windows</a>
-              <a className="button button-ghost" href={links.release} target="_blank" rel="noreferrer">View Release Notes <ExternalLink aria-hidden="true" /></a>
-            </div>
+            <p>Flint is available for Windows (x64) and Linux (AppImage). It introduces the in-game Flint Client menu and HUD customization, improves crash diagnostics, and fixes Flint Client stability and delivery issues.</p>
+            <DownloadCardActions />
             <p className="release-history">Previous releases: <a href={links.previousRelease} target="_blank" rel="noreferrer">v0.4 Beta <ExternalLink aria-hidden="true" /></a> · <a href={links.olderRelease} target="_blank" rel="noreferrer">v0.3 Beta <ExternalLink aria-hidden="true" /></a></p>
           </div>
-          <div className="download-spec"><span>PLATFORM</span><strong>Windows x64</strong><span>CHANNEL</span><strong>Beta</strong><span>VERSION</span><strong>{currentRelease.version}</strong></div>
+          <DownloadCardSpec />
         </Reveal>
       </section>
 

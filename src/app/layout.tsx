@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { DownloadProvider } from "@/components/download-context";
 import { currentRelease, siteLinks, siteOrigin } from "@/lib/site";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -11,7 +12,7 @@ const structuredData = {
   "@type": "SoftwareApplication",
   name: "Flint Launcher",
   applicationCategory: "GameApplication",
-  operatingSystem: "Windows 64-bit",
+  operatingSystem: "Windows 64-bit, Linux x86_64",
   softwareVersion: `${currentRelease.version} Beta`,
   description: "A focused Minecraft launcher for managing versions, isolated profiles, Java runtimes, Fabric, and compatible mods.",
   url: siteOrigin,
@@ -23,20 +24,20 @@ const structuredData = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title: "Flint Launcher — A Lightweight Minecraft Launcher",
-  description: "A focused Windows launcher for managing Minecraft versions, isolated profiles, Java runtimes, Fabric, and compatible mods.",
+  description: "A focused Windows and Linux launcher for managing Minecraft versions, isolated profiles, Java runtimes, Fabric, and compatible mods.",
   keywords: ["Flint Launcher", "Minecraft launcher", "open source Minecraft launcher", "Fabric launcher", "Minecraft mod launcher"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     title: "Flint Launcher — A Lightweight Minecraft Launcher",
-    description: "Manage Minecraft versions, isolated profiles, Java runtimes, Fabric, and compatible mods from one focused Windows launcher.",
+    description: "Manage Minecraft versions, isolated profiles, Java runtimes, Fabric, and compatible mods from one focused Windows and Linux launcher.",
     url: "/",
     siteName: "Flint Launcher",
   },
   twitter: {
     card: "summary",
     title: "Flint Launcher — A Lightweight Minecraft Launcher",
-    description: "A focused Windows launcher for Minecraft profiles, Fabric, Java runtimes, and compatible mods.",
+    description: "A focused Windows and Linux launcher for Minecraft profiles, Fabric, Java runtimes, and compatible mods.",
     creator: "@harshittpanday",
   },
   category: "technology",
@@ -50,7 +51,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
         />
-        {children}
+        <DownloadProvider>{children}</DownloadProvider>
       </body>
     </html>
   );

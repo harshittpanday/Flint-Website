@@ -14,7 +14,7 @@ export function SiteFooter() {
             <Image src="/flint-logo.png" width={42} height={42} alt="" />
             <span>FLINT</span>
           </Link>
-          <p>A focused Minecraft launcher for Windows.</p>
+          <p>A focused Minecraft launcher for Windows & Linux.</p>
         </div>
         <nav aria-label="Legal pages">
           {legal.map((item) => <Link href={`/${item}`} key={item}>{item[0].toUpperCase() + item.slice(1)}</Link>)}

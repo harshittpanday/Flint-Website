@@ -4,7 +4,8 @@ import { Download, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { currentRelease, siteLinks } from "@/lib/site";
+import { siteLinks } from "@/lib/site";
+import { useDownload } from "./download-context";
 
 const links = [
   ["Features", "/#features"],
@@ -17,6 +18,7 @@ const links = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const { downloadUrl, fileName, buttonText } = useDownload();
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -37,8 +39,8 @@ export function SiteHeader() {
           <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{label}</a>
         ))}
       </nav>
-      <a className="button button-small header-download" href={siteLinks.installer} download={currentRelease.installerFileName}>
-        <Download aria-hidden="true" /> Download for Windows
+      <a className="button button-small header-download" href={downloadUrl} download={fileName}>
+        <Download aria-hidden="true" /> {buttonText}
       </a>
       <button className="menu-button" type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen((value) => !value)}>
         {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
@@ -48,7 +50,7 @@ export function SiteHeader() {
           {links.map(([label, href]) => (
             <a key={label} href={href} onClick={() => setOpen(false)} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{label}</a>
           ))}
-          <a className="button" href={siteLinks.installer} download={currentRelease.installerFileName}><Download aria-hidden="true" /> Download for Windows</a>
+          <a className="button" href={downloadUrl} download={fileName}><Download aria-hidden="true" /> {buttonText}</a>
         </nav>
       )}
     </header>
