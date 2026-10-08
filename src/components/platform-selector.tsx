@@ -26,13 +26,13 @@ export function PlatformSelector() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    function handleClickOutside(event: PointerEvent) {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         setOpen(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("pointerdown", handleClickOutside);
+    return () => document.removeEventListener("pointerdown", handleClickOutside);
   }, []);
 
   return (
@@ -42,6 +42,7 @@ export function PlatformSelector() {
         className="platform-selector-trigger"
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
+        aria-haspopup="menu"
         aria-label="Select operating system"
       >
         <span className="platform-icon">

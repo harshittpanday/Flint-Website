@@ -62,7 +62,7 @@ export function SiteHeader() {
               <Download aria-hidden="true" /> {buttonText}
             </Link>
           ) : (
-            <a className="button" href={downloadUrl} download={fileName}>
+            <a className="button" href={downloadUrl} download={fileName} onClick={() => setOpen(false)}>
               <Download aria-hidden="true" /> {buttonText}
             </a>
           )}
